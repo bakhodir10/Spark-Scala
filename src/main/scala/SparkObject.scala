@@ -5,7 +5,6 @@ import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkObject {
 
-  // main method
   def main(args: Array[String]): Unit = {
 
     // spark config
@@ -15,14 +14,12 @@ object SparkObject {
 
     // Step 2
 
-    // create RDD
     val cane = sc.textFile("cane.csv") // creating RDD
     // a file is to write the result into
     val writer = new PrintWriter(new File("result.txt"))
 
     val rows = cane.map(line => line.split(",")) // making an array
-    // first row in the array
-    val header = rows.first()
+    val header = rows.first() // first row in the array
 
     // Step 3
 
