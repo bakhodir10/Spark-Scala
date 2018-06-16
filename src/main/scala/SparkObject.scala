@@ -1,5 +1,4 @@
 import java.io.{File, PrintWriter}
-
 import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkObject {
