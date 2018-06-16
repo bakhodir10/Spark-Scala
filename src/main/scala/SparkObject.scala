@@ -21,17 +21,17 @@ object SparkObject {
     val header = rows.first()
 
     // get list of all category and convert to RowNumAndCategory that has category name and value
-    val rowNumAndCategories = rows.filter(line => !(line sameElements header))
+    val population = rows.filter(line => !(line sameElements header))
       .map(line => new RowNumAndCategory(line(5).substring(1, line(5).length - 1), line(1).toDouble))
 
     // get list of values in category A
-    val categoryA = rowNumAndCategories.filter(x => x.category.equals("A")).map(x => x.value)
+    val categoryA = population.filter(x => x.category.equals("A")).map(x => x.value)
     // get list of values in category B
-    val categoryB = rowNumAndCategories.filter(x => x.category.equals("B")).map(x => x.value)
+    val categoryB = population.filter(x => x.category.equals("B")).map(x => x.value)
     // get list of values in category C
-    val categoryC = rowNumAndCategories.filter(x => x.category.equals("C")).map(x => x.value)
+    val categoryC = population.filter(x => x.category.equals("C")).map(x => x.value)
     // get list of values in category D
-    val categoryD = rowNumAndCategories.filter(x => x.category.equals("D")).map(x => x.value)
+    val categoryD = population.filter(x => x.category.equals("D")).map(x => x.value)
 
     val meanA = categoryA.sum() // get mean of A
     val meanB = categoryB.sum() // get mean of B
@@ -55,6 +55,7 @@ object SparkObject {
     val varD = sumD / countD // variance of category D
 
     for (i <- 1 to 1000) {
+
     }
   }
 }
